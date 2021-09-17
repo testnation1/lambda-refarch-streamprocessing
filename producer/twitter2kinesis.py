@@ -17,7 +17,7 @@ limitations under the License.
 import boto3
 import json
 
-from TwitterAPI import TwitterAPI
+from TwitterAPI  import TwitterAPI
 
 # Twitter OAuth Tokens
 consumer_key = ""
@@ -43,4 +43,4 @@ r = api.request('statuses/filter', {'track': 'yolo'})
 for item in r:
     if 'text' in item:
          kinesis.put_record(StreamName=stream_name, Data=json.dumps(item), PartitionKey=item['user']['screen_name'])
-         print item['text']
+        print item['text']
